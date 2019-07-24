@@ -43,9 +43,9 @@ Then install needed packages:
 (venv) $ pip install -r requirements.txt
 (venv) $ pip install -e .
 ```
-*The second command installs the local package, allowing use with the `babysitter` CLI while in the virtualenv.
+*The second command installs the local package, allowing use with the `babysitter` CLI while in the virtualenv.*
 
-After that you should be able to run the main.py file `(venv) $ python main.py` or run tests `(venv) $ pytest`. When done, exit the virtualenv with:
+After that you should be able to run the main.py file `(venv) $ babysitter` or run tests `(venv) $ pytest`. When done, exit the virtualenv with:
 
 ```bash
 (venv) $ deactivate
