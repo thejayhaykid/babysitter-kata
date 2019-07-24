@@ -15,4 +15,4 @@ def test_event_occurred_with_hours():
     expected = "Total amount owed: $10.00"
     e1 = Sitter()
     # Before custom rates are added, using standard $10/hr.
-    assert expected == e1.babysit(1700, 1800)
+    assert expected == e1.babysit(17, 18)
