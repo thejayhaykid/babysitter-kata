@@ -18,5 +18,5 @@ setup(
     author_email='jakejhayes@gmail.com',
     url='https://github.com/thejayhaykid/babysitter-kata',
     license=license,
-    packages=find_packages(exclude=('test', 'venv'))
+    packages=find_packages(exclude='test')
 )
