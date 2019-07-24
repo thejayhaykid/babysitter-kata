@@ -6,4 +6,4 @@ class Sitter:
         self.name = "test"
 
     def babysit(self):
-        return "Successful event."
+        return "Total amount owed: $0.00"
