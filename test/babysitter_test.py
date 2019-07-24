@@ -16,3 +16,10 @@ def test_event_occurred_with_hours():
     e1 = Sitter()
     # Before custom rates are added, using standard $10/hr.
     assert expected == e1.babysit(17, 18)
+
+
+def test_event_started_before_time_allowed():
+    """ Attempting to start and event before 5 PM should return an error. """
+    expected = "ERROR: Start time out of range"
+    e1 = Sitter()
+    assert expected == e1.babysit(16, 17)
