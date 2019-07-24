@@ -23,3 +23,9 @@ def test_event_started_before_time_allowed():
     expected = "ERROR: Start time out of range"
     e1 = Sitter()
     assert expected == e1.babysit(16, 17)
+
+def test_event_started_after_midnight():
+    """ Babysitting events can start after midnight as long as they end before 4 AM. """
+    expected = "Total amount owed: $10.00"
+    e1 = Sitter()
+    assert expected == e1.babysit(0, 1)
