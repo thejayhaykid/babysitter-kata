@@ -9,7 +9,7 @@ This repository uses Python 3.6 and [pytest](https://pytest.org) as the testing 
 
 ## Usage Instructions
 
-This project was tested on Linux and macOS only, the process for virtualenv is a little different for Windows.
+This project was tested on Linux and macOS only (***NOTE: On my MacBook, I had to use `$ python3` and `$ pip3` to get the correct versions as Python 2 is preinstalled***), the process for virtualenv is a little different for Windows.
 
 Open a terminal window and navigate to the root folder of this project
 
