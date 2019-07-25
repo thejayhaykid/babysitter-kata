@@ -30,10 +30,14 @@ class Sitter:
         if self.start_time < 0 or (4 < self.start_time < 17):
             return 'ERROR: Start time out of range'
 
+        # Check to make sure end time is valid
+        if self.end_time < 0 or (4 < self.end_time < 17):
+            return 'ERROR: End time out of range'
+
         # Check to make sure start time is before end time
         if self.hours_worked < 0:
             return 'ERROR: Cannot end before start'
-            
+
         total = self.rate * self.hours_worked
         return f'Total amount owed: ${total:.2f}'
 
