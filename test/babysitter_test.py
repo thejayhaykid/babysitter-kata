@@ -43,3 +43,9 @@ def test_input_time_must_be_valid_hour():
     expected = "ERROR: Please enter a valid time"
     e1 = Sitter("2400", "2600")
     assert expected == e1.babysit()
+
+def test_start_time_before_midnight_end_time_after_midnight():
+    """ Making sure babysitter still gets paid if they are not done until after midnight."""
+    expected = "Total amount owed: $50.00"
+    e1 = Sitter("2200", "0300")
+    assert expected == e1.babysit()
