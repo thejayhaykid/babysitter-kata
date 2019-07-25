@@ -37,3 +37,9 @@ def test_end_time_earlier_than_start_time():
     expected = "ERROR: Cannot end before start"
     e1 = Sitter("1900", "1700")
     assert expected == e1.babysit()
+
+def test_input_time_must_be_valid_hour():
+    """ Ensuring that time inputs where hour > 23 is not accepted. """
+    expected = "ERROR: Please enter a valid time"
+    e1 = Sitter("2400", "2600")
+    assert expected == e1.babysit()
