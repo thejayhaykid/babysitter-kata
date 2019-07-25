@@ -55,3 +55,9 @@ def test_end_time_is_within_valid_range():
     expected = "ERROR: End time out of range"
     e1 = Sitter("0300", "0500")
     assert expected == e1.babysit()
+
+def test_time_rounding_up_when_past_half_the_hour():
+    """ Fufilling the requirement 'gets paid for full hours (no fractional hours)' """
+    expected = "Total amount owed: $50.00"
+    e1 = Sitter("2200", "0235")
+    assert expected == e1.babysit()
