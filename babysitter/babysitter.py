@@ -7,13 +7,14 @@ class Sitter:
         self.rate = 10
         self.start_time = start_time
         self.end_time = end_time
+        self.hours_worked = 0
 
     def babysit(self):
         """ Main function defining a babysitting 'event' """
 
         # Check for valid times
-        _, start_pass = self.validate_time(self.start_time)
-        _, end_pass = self.validate_time(self.end_time)
+        _, start_pass = self._validate_time(self.start_time)
+        _, end_pass = self._validate_time(self.end_time)
 
         if not start_pass or not end_pass:
             return 'ERROR: Please enter a valid time'
@@ -26,13 +27,26 @@ class Sitter:
 
         if self.start_time < 0 or (4 < self.start_time < 17):
             return 'ERROR: Start time out of range'
-        if self.end_time < self.start_time:
+        
+        if self.start_time < 4 and self.start_time >= 0:
+            temp_start_time = self.start_time + 24
+        else:
+            temp_start_time = self.start_time
+
+        if self.end_time < 4 and self.end_time >= 0:
+            temp_end_time = self.end_time + 24
+        else:
+            temp_end_time = self.end_time
+        
+        self.hours_worked = temp_end_time - temp_start_time
+
+        if self.hours_worked < 0:
             return 'ERROR: Cannot end before start'
-        total = self.rate * (self.end_time - self.start_time)
+        total = self.rate * self.hours_worked
         return f'Total amount owed: ${total:.2f}'
 
 
-    def validate_time(self, input_time):
+    def _validate_time(self, input_time):
         """ Method to validate time. """
         try:
             ret_time = time.strptime(input_time, '%H%M')
