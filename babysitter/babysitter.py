@@ -23,25 +23,17 @@ class Sitter:
         self.start_time = int(self.start_time) / 100
         self.end_time = int(self.end_time) / 100
 
-        print(f'{self.start_time}, {self.end_time}')
+        # Calculate hours worked
+        self._calculate_time_worked()
 
+        # Check to make sure start time is valid
         if self.start_time < 0 or (4 < self.start_time < 17):
             return 'ERROR: Start time out of range'
-        
-        if self.start_time < 4 and self.start_time >= 0:
-            temp_start_time = self.start_time + 24
-        else:
-            temp_start_time = self.start_time
 
-        if self.end_time < 4 and self.end_time >= 0:
-            temp_end_time = self.end_time + 24
-        else:
-            temp_end_time = self.end_time
-        
-        self.hours_worked = temp_end_time - temp_start_time
-
+        # Check to make sure start time is before end time
         if self.hours_worked < 0:
             return 'ERROR: Cannot end before start'
+            
         total = self.rate * self.hours_worked
         return f'Total amount owed: ${total:.2f}'
 
@@ -53,3 +45,17 @@ class Sitter:
             return ret_time, True
         except ValueError:
             return None, False
+
+    def _calculate_time_worked(self):
+        """ Private method to calculate the time worked to make babysit() smaller."""
+        if self.start_time < 4 and self.start_time >= 0:
+            temp_start_time = self.start_time + 24
+        else:
+            temp_start_time = self.start_time
+
+        if self.end_time < 4 and self.end_time >= 0:
+            temp_end_time = self.end_time + 24
+        else:
+            temp_end_time = self.end_time
+        
+        self.hours_worked = temp_end_time - temp_start_time
