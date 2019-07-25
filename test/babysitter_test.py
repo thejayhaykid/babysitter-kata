@@ -49,3 +49,9 @@ def test_start_time_before_midnight_end_time_after_midnight():
     expected = "Total amount owed: $50.00"
     e1 = Sitter("2200", "0300")
     assert expected == e1.babysit()
+
+def test_end_time_is_within_valid_range():
+    """ Ensuring that the end time is within a valid range. The same as the start time. """
+    expected = "ERROR: End time out of range"
+    e1 = Sitter("0300", "0500")
+    assert expected == e1.babysit()
