@@ -60,5 +60,7 @@ This is going to stay very strict to the provided requirements to make a minimum
 1. The three families will be hardcoded into the program. It would be preferable to have them defined in an input file or even a database so that they could be more easily edited. But since they do not need to be editable and there are only three, it saves time to define them directly in the program.
 2. The work hours will also be hardcoded for the same reasons.
 3. The CLI will be used to just define one babysitting event.
+4. Because of the requirement "gets paid for full hours (no fractional hours)", I made the decision to use a standard rounding pattern. Minute 00 to minute 29 are rounded down and minute 30 to minute 59 are rounded up and hour.
+5. Decided to take time input as a 4 digit 24 hour input. Midnight is 0000, 5 PM is 1700.
 
 The initial commit for this project is a project skeleton only, with the minimum requirements for an organized python project.
