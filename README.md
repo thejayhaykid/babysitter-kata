@@ -45,7 +45,18 @@ Then install needed packages:
 ```
 *The second command installs the local package, allowing use with the `babysitter` CLI while in the virtualenv.*
 
-After that you should be able to run the main.py file `(venv) $ babysitter` or run tests `(venv) $ pytest`. When done, exit the virtualenv with:
+After that you should be able to run the main.py file `(venv) $ babysitter` or run tests `(venv) $ pytest`. 
+
+With the babysitter CLI, you can use the following flags:
+
+- `--help` -- Will pull up a well formatted listing of all of the flags
+- `-s TEXT` or `--start TEXT` -- to enter the start time. Example: `(venv) $ babysitter -s 1800`
+- `-e TEXT` or `--end TEXT` -- to enter the end time. Example: `(venv) $ babysitter -e 1800`
+- `-f [A|B|C]` or `--family [A|B|C]` -- to select the family. Example `(venv) $ babysitter -f B`
+
+Any of the three flags not accounted for will receive a prompt to enter the value.
+
+When done, exit the virtualenv with:
 
 ```bash
 (venv) $ deactivate

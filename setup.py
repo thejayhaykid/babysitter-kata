@@ -18,5 +18,11 @@ setup(
     author_email='jakejhayes@gmail.com',
     url='https://github.com/thejayhaykid/babysitter-kata',
     license=license,
-    packages=find_packages(exclude='test')
+    packages=find_packages(exclude='test'),
+    entry_points = {
+        'console_scripts': [
+            'babysitter = babysitter.cli:main'
+        ]
+    },
+    install_requires=['click']
 )
