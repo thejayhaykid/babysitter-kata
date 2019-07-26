@@ -19,6 +19,8 @@ class Sitter:
     def babysit(self):
         """ Main function defining a babysitting 'event' """
         families = {"A": FAMILY_A, "B": FAMILY_B, "C": FAMILY_C}
+        if self.family not in ("A", "B", "C"):
+            return 'ERROR: Valid families are A, B, or C. Family chosen invalid.'
         rate = families[self.family]
 
         # Check for valid times
@@ -44,7 +46,6 @@ class Sitter:
 
         # Check to make sure start time is before end time
         if self.hours_worked < 0:
-            print(f'Hours worked: {self.hours_worked}')
             return 'ERROR: Cannot end before start'
 
         total = sum([i*j for i,j in zip(rate,self.hours_worked_list)])
@@ -74,7 +75,6 @@ class Sitter:
         self.hours_worked = temp_end_time - temp_start_time
         start_index = temp_start_time - 17
         self.hours_worked_list = [1 if i in range(start_index, start_index + self.hours_worked) else e for i, e in enumerate(self.hours_worked_list)]
-        print(f'Hours worked list: {self.hours_worked_list}')
 
     def _round_hours(self):
         """ Private method to make sure there are no partial hours.  """
