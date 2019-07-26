@@ -26,3 +26,8 @@ def test_with_family_c_rate():
     e1 = Sitter("1700", "0359", "C")
     assert expected == e1.babysit()
 
+def test_with_undefined_family():
+    """ Setting an error message if the family chose is not A, B, or C """
+    expected = "ERROR: Valid families are A, B, or C. Family chosen invalid."
+    e1 = Sitter(family="TEST")
+    assert expected == e1.babysit()
