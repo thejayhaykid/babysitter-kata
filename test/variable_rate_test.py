@@ -13,3 +13,16 @@ def test_with_family_a_rate():
     expected = "Total amount owed: $15.00"
     e1 = Sitter("1717", "1745", "A")
     assert expected == e1.babysit()
+
+def test_with_family_b_rate():
+    """ Testing to make sure Family B rate is applied successfully. """
+    expected = "Total amount owed: $20.00"
+    e1 = Sitter("2100", "2300", "B")
+    assert expected == e1.babysit()
+
+def test_with_family_c_rate():
+    """ Testing to make sure Family C rate is applied successfully. """
+    expected = "Total amount owed: $189.00"
+    e1 = Sitter("1700", "0359", "C")
+    assert expected == e1.babysit()
+
