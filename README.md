@@ -64,3 +64,27 @@ This is going to stay very strict to the provided requirements to make a minimum
 5. Decided to take time input as a 4 digit 24 hour input. Midnight is 0000, 5 PM is 1700.
 
 The initial commit for this project is a project skeleton only, with the minimum requirements for an organized python project.
+
+I ran a [testing coverage](https://pypi.org/project/pytest-cov/) tool after class was completed and here are the results:
+
+```bash
+=========================== test session starts ===========================
+platform linux -- Python 3.6.8, pytest-5.0.1, py-1.8.0, pluggy-0.12.0
+rootdir: /home/jake/python/babysitter-kata
+plugins: cov-2.7.1
+collected 15 items
+
+test/babysitter_test.py ..........                                  [ 66%]
+test/variable_rate_test.py .....                                    [100%]
+
+----------- coverage: platform linux, python 3.6.8-final-0 -----------
+Name                       Stmts   Miss  Cover
+----------------------------------------------
+babysitter/__init__.py         1      0   100%
+babysitter/babysitter.py      54      0   100%
+----------------------------------------------
+TOTAL                         55      0   100%
+
+
+======================== 15 passed in 0.07 seconds ========================
+```
