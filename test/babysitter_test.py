@@ -61,3 +61,9 @@ def test_time_rounding_up_when_past_half_the_hour():
     expected = "Total amount owed: $50.00"
     e1 = Sitter("2200", "0235")
     assert expected == e1.babysit()
+
+def test_time_rounding_up_to_four_still_works():
+    """ Ensuring a time can be rounded up to four without failing. """
+    expected = "Total amount owed: $20.00"
+    e1 = Sitter("0223", "0345")
+    assert expected == e1.babysit()

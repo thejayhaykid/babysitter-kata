@@ -19,23 +19,23 @@ class Sitter:
         if not start_pass or not end_pass:
             return 'ERROR: Please enter a valid time'
         
-        # Converting strings to ints to satisfy current testing
-        self.start_time = int(self.start_time) / 100
-        self.end_time = int(self.end_time) / 100
+        # Check to make sure start time is valid
+        if int(self.start_time) < 0 or (400 < int(self.start_time) < 1700):
+            return 'ERROR: Start time out of range'
+
+        # Check to make sure end time is valid
+        if int(self.end_time) < 0 or (400 < int(self.end_time) < 1700):
+            return 'ERROR: End time out of range'
+
+        # Converting strings to ints to satisfy current testing and rounding them correctly
+        self._round_hours()
 
         # Calculate hours worked
         self._calculate_time_worked()
 
-        # Check to make sure start time is valid
-        if self.start_time < 0 or (4 < self.start_time < 17):
-            return 'ERROR: Start time out of range'
-
-        # Check to make sure end time is valid
-        if self.end_time < 0 or (4 < self.end_time < 17):
-            return 'ERROR: End time out of range'
-
         # Check to make sure start time is before end time
         if self.hours_worked < 0:
+            print(f'Hours worked: {self.hours_worked}')
             return 'ERROR: Cannot end before start'
 
         total = self.rate * self.hours_worked
@@ -52,14 +52,23 @@ class Sitter:
 
     def _calculate_time_worked(self):
         """ Private method to calculate the time worked to make babysit() smaller."""
-        if self.start_time < 4 and self.start_time >= 0:
+        if self.start_time <= 4 and self.start_time >= 0:
             temp_start_time = self.start_time + 24
         else:
             temp_start_time = self.start_time
 
-        if self.end_time < 4 and self.end_time >= 0:
+        if self.end_time <= 4 and self.end_time >= 0:
             temp_end_time = self.end_time + 24
         else:
             temp_end_time = self.end_time
         
         self.hours_worked = temp_end_time - temp_start_time
+
+    def _round_hours(self):
+        """ Private method to make sure there are no partial hours.  """
+        self.start_time = int(self.start_time)
+        self.end_time = int(self.end_time)
+        start_round = (self.start_time % 100) // 30
+        end_round = (self.end_time % 100) // 30
+        self.start_time = (self.start_time // 100) + start_round
+        self.end_time = (self.end_time // 100) + end_round
